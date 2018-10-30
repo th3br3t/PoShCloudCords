@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/github/webhook?id=b4b4ds9ah8b7kuq0)](https://ci.appveyor.com/project/BretRobinson/poshcloudcords)
+[![Build status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva/branch/master?svg=true)](https://ci.appveyor.com/project/BretRobinson/poshcloudcords/branch/master)
 
 # PoShCloudCords
 CloudCords DevOps Module
