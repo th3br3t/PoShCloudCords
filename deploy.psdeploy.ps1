@@ -4,10 +4,11 @@ if(
     $env:BHBuildSystem -eq 'AppVeyor'
    )
 {
-    Deploy Master {
+    Deploy PoShCloudCords {
         By AppVeyorModule {
             FromSource $ENV:BHProjectName
-            To AppVeyor
+            To Environment
+            Name CloudCords
             WithOptions @{
                 Version = $env:APPVEYOR_BUILD_VERSION
             }
