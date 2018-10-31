@@ -1,8 +1,13 @@
 ﻿# See http://www.appveyor.com/docs/appveyor-yml for many more options
 
-environment:
-  NugetApiKey:
+deploy:
+  provider: NuGet
+  server: 'https://ps.cloudcords.com:4433/nuget/CloudCordsRepository/'
+  api_key:
     secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
+  skip_symbols: false
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  artifact: /.*\.nupkg/
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
