@@ -4,10 +4,6 @@ environment:
   my_variable:
     secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
 
-deploy:
-  provider: Environment
-  name: CloudCords
-
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
 
