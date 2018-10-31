@@ -14,7 +14,6 @@ if(
         }
     }
 }
-
 <#
 # Publish to AppVeyor if we're in AppVeyor
 if(
