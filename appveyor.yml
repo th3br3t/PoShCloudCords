@@ -1,13 +1,8 @@
 ﻿# See http://www.appveyor.com/docs/appveyor-yml for many more options
 
-deploy:
-  provider: NuGet
-  server: 'https://ps.cloudcords.com:4433/nuget/CloudCordsRepository/'
-  api_key:
+environment:
+  NugetApiKey:
     secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
-  skip_symbols: false
-  symbol_server:           # remove to push symbols to SymbolSource.org
-  artifact: /.*\.nupkg/
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
@@ -15,10 +10,10 @@ os: WMF 5
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
-  message: /updated readme.*|update readme.*s/
+  message: /updated (readme|doc).*|update (readme|doc).*s/
 
 build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-- ps: . .\build.ps1
+  - ps: . .\build.ps1
