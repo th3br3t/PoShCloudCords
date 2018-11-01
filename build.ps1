@@ -13,7 +13,7 @@ param ($Task = 'Default')
 Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 
 Install-Module Psake, PSDeploy, BuildHelpers, PSScriptAnalyzer, PlatyPS -force -Scope CurrentUser
-Install-Module Pester -MinimumVersion 4.1, PowerShellGet -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
+Install-Module Pester, PowerShellGet -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
 
 "  Import Dependent Modules"
 Import-Module InvokeBuild, BuildHelpers, PSScriptAnalyzer
