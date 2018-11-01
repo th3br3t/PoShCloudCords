@@ -12,7 +12,7 @@ param ($Task = 'Default')
 "  Install Dependent Modules"
 Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 
-Install-Module Psake, PSDeploy, BuildHelpers, -force -Scope CurrentUser
+Install-Module Psake, PSDeploy, BuildHelpers -force -Scope CurrentUser
 Install-Module Pester -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
 
 "  Import Dependent Modules"
