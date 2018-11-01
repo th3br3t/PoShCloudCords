@@ -12,11 +12,11 @@ param ($Task = 'Default')
 "  Install Dependent Modules"
 Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 
-Install-Module Psake, PSDeploy, BuildHelpers, PSScriptAnalyzer, PlatyPS -force -Scope CurrentUser
-Install-Module Pester, PowerShellGet -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
+Install-Module Psake, PSDeploy, BuildHelpers, -force -Scope CurrentUser
+Install-Module Pester -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
 
 "  Import Dependent Modules"
-Import-Module Psake, BuildHelpers, PSScriptAnalyzer
+Import-Module Psake, BuildHelpers
 
 Set-BuildEnvironment -ErrorAction SilentlyContinue
 
