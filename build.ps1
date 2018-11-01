@@ -16,7 +16,7 @@ Install-Module Psake, PSDeploy, BuildHelpers, PSScriptAnalyzer, PlatyPS -force -
 Install-Module Pester, PowerShellGet -Force -SkipPublisherCheck -Scope CurrentUser -AllowClobber
 
 "  Import Dependent Modules"
-Import-Module InvokeBuild, BuildHelpers, PSScriptAnalyzer
+Import-Module Psake, BuildHelpers, PSScriptAnalyzer
 
 Set-BuildEnvironment -ErrorAction SilentlyContinue
 
