@@ -263,7 +263,6 @@ Task Deploy -Depends BuildDocs {
     }
 }
 
-<#
 Task PostDeploy -depends Deploy {
     $lines
     if ($ENV:APPVEYOR_REPO_PROVIDER -notlike 'github') {
@@ -349,4 +348,3 @@ Task PostDeploy -depends Deploy {
         $Response | Format-List *
     }
 }
-#>
