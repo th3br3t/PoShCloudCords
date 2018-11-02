@@ -75,7 +75,7 @@ Accept wildcard characters: False
 
 ## OUTPUTS
 
-### MSGraphAPI.DirectoryObject.AppRoleAssignment
+### System.Management.Automation.PSCredential {}
 
 ## NOTES
 
