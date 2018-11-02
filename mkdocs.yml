@@ -4,7 +4,7 @@ site_author: Bret Robinson
 edit_uri: edit/master/docs/
 theme: readthedocs
 copyright: "PoShCloudCords is licensed under the <a href='https://github.com/th3br3t/PoShCloudCords/blob/master/LICENSE'>MIT license"
-pages:
+nav:
   - Home: index.md
   - Realse Notes: RELEASE.md
   - Change Log: ChangeLog.md

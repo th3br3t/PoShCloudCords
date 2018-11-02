@@ -6,12 +6,13 @@ Create PSCredential object from encrypted key files.
 ## SYNTAX
 
 ```
-Add-AADAppRoleAssignment [-ServicePrincipal] <Object[]> [-User] <Object[]> [[-BaseURL] <String>]
- [[-APIVersion] <String>] [[-RoleID] <String>] [-WhatIf] [-Confirm]
+Import-PSCredential [-User] <Object[]> [-PasswordFile] <Object[]> [[-KeyFile] <Object[]>]
 ```
 
 ## DESCRIPTION
-Create PSCredential object from encrypted key files.
+Builds on principals detailed in Secure Password with PowerShell: Encrypting Credentials – Part 2 http://www.adminarsenal.com/admin-arsenal-blog/secure-password-with-powershell-encrypting-credentials-part-2
+Allows for creation of encrypted credential objects based on tranportable xml files. they are independant of machine and user profiles.
+
 
 ## EXAMPLES
 
@@ -53,7 +54,7 @@ Accept wildcard characters: False
 ```
 
 ### -KeyFile
-The Azure AD Graph Base URL.
+xml file The Azure AD Graph Base URL.
 This is not required.
 Deafult
      https://graph.windows.net
