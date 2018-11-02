@@ -1,4 +1,4 @@
-# Add-AADAppRoleAssignment
+# Import-PSCredential
 
 ## SYNOPSIS
 Create PSCredential object from encrypted key files.
