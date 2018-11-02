@@ -24,7 +24,7 @@ Create-PSCredential -User "User\Name" -PasswordFile \\Path\To\UserName_Pass.xml 
 ## PARAMETERS
 
 ### -User
-MSGraphAPI.DirectoryObject.ServicePrincipal retruned by the Get-AADServicePrincipal* cmdlets
+SystemObject.PSCredential
 
 ```yaml
 Type: Object[]
@@ -71,37 +71,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ## INPUTS
 
 ## OUTPUTS
@@ -111,12 +80,7 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
+[https://poshcloudcords.readthedocs.io/en/latest/functions/Import-PSCredential/](https://poshcloudcords.readthedocs.io/en/latest/functions/Import-PSCredential/)
 
-[http://psmsgraph.readthedocs.io/en/latest/functions/Add-AADAppRoleAssignment](http://psmsgraph.readthedocs.io/en/latest/functions/Add-AADAppRoleAssignment)
 
-[http://psmsgraph.readthedocs.io/en/latest/functions/Remove-AADAppRoleAssignment](http://psmsgraph.readthedocs.io/en/latest/functions/Remove-AADAppRoleAssignment)
-
-[http://psmsgraph.readthedocs.io/en/latest/functions/Get-AADUserAppRoleAssignment](http://psmsgraph.readthedocs.io/en/latest/functions/Get-AADUserAppRoleAssignment)
-
-[http://psmsgraph.readthedocs.io/en/latest/functions/Get-AADServicePrincipalAppRoleAssignedTo](http://psmsgraph.readthedocs.io/en/latest/functions/Get-AADServicePrincipalAppRoleAssignedTo)
 
