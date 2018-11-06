@@ -36,7 +36,8 @@ Properties {
     If ($GalleryVersion -gt $StepVersion) {
         $BuildVersion = $GalleryVersion
     }
-    $BuildVersion = [version]::New($BuildVersion.Major, $BuildVersion.Minor, $BuildVersion.Build, $env:BHBuildNumber)
+    $BuildVersion = [version]::New($BuildVersion.Major, $BuildVersion.Build, $env:BHBuildNumber)
+    Write-Host "Using version: $BuildVersion"
     $BuildDate = Get-Date -uFormat '%Y-%m-%d'
     $ReleaseNotes = "$ProjectRoot\RELEASE.md"
     $ChangeLog = "$ProjectRoot\docs\ChangeLog.md"
