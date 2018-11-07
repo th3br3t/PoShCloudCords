@@ -1,10 +1,8 @@
 ﻿function Add-KeePass_Entry {
     param(
         [CmdletBinding()] 
-        [parameter(Mandatory=$true)]
-        [string] $MasterKey,
-        #[Parameter(Mandatory=$true)]
-        #[Security.SecureString] $MasterKey,
+        [Parameter(Mandatory=$true)]
+        [Security.SecureString] $MasterKey,
         [parameter(Mandatory=$true)]
         [string] $Title,
         [parameter(Mandatory=$true)]
@@ -14,7 +12,7 @@
     $DatabaseProfileName = "KiranDB"
     $Time = (Get-Date -UFormat "%A, %b %d, %Y %r")
     $KPNotes = "Entry added by automation on $Time"
-    $Exclude_Chars = @()
+    [string]$Exclude_Chars = @()
     $Exclude_Chars += ('"','$','`','`"')
     $NewPassword = (New-KeePassPassword -UpperCase -LowerCase -Digits -SpecialCharacters -ExcludeCharacters $Exclude_Chars -Length 20)
     $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $EncKeePassPassword | Where-Object {$_.Title -like "$Title"})
