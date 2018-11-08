@@ -14,7 +14,7 @@
     $KPNotes = "Entry added by automation on $Time"
     [string]$Exclude_Chars = @()
     $Exclude_Chars += ('"','$','`','`"')
-    $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $EncKeePassPassword | Where-Object {$_.Title -like "$Title"})
+    $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $MasterKey | Where-Object {$_.Title -like "$Title"})
     if (!($Get_KPEntry)) {
         Write-Host "The account `"$Title`" could not be found in KeePass"
         $NewPassword = (New-KeePassPassword -UpperCase -LowerCase -Digits -SpecialCharacters -ExcludeCharacters $Exclude_Chars -Length 20)

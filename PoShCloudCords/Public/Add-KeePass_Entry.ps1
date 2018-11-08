@@ -15,7 +15,7 @@
     [string]$Exclude_Chars = @()
     $Exclude_Chars += ('"','$','`','`"')
     $NewPassword = (New-KeePassPassword -UpperCase -LowerCase -Digits -SpecialCharacters -ExcludeCharacters $Exclude_Chars -Length 20)
-    $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $EncKeePassPassword | Where-Object {$_.Title -like "$Title"})
+    $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $MasterKey | Where-Object {$_.Title -like "$Title"})
     if (!($Get_KPEntry)) {
         Write-Host "Creating account `"$Title`" in KeePass"
         New-KeePassEntry -DatabaseProfileName $DatabaseProfileName -MasterKey $MasterKey -KeePassEntryGroupPath "kiran" -Title $Title -UserName $UserName -KeePassPassword $NewPassword -Notes $KPNotes
