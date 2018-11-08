@@ -1,9 +1,4 @@
 ﻿function Add-KeePass_Profile {
-    param(
-        [CmdletBinding()] 
-        [parameter(Mandatory=$true)]
-        [string] $UseMasterKey
-    )
     $KeePassPath = "\\s-i-km.cloudcords.local\Shared"
     $KeePassDB = "kiran.kdbx"
     $KeePassFile = "$KeePassPath\$KeePassDB"
@@ -13,6 +8,6 @@
         }
         else {
             Write-Host "Creating a new KeePass Database Configuration Profile named $DatabaseProfileName." -Fore Magenta
-            New-KeePassDatabaseConfiguration -DatabaseProfileName $DatabaseProfileName -DatabasePath $KeePassFile -UseMasterKey $UseMasterKey
+            New-KeePassDatabaseConfiguration -DatabaseProfileName $DatabaseProfileName -DatabasePath $KeePassFile -UseMasterKey
         }
 }
