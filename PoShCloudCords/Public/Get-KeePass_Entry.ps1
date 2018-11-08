@@ -1,10 +1,8 @@
 ﻿function Get-KeePass_Entry {
     param(
         [CmdletBinding()] 
-        [parameter(Mandatory=$true)]
-        [string] $MasterKey,
-        #[Parameter(Mandatory=$true)]
-        #[Security.SecureString] $MasterKey,
+        [Parameter(Mandatory=$true)]
+        [Security.SecureString] $MasterKey,
         [parameter(Mandatory=$true)]
         [string] $Title,
         [parameter(Mandatory=$true)]
@@ -15,7 +13,7 @@ $DatabaseProfileName = "KiranDB"
 $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $DatabaseProfileName -MasterKey $EncKeePassPassword | Where-Object {$_.Title -like "$Title"})
     if (!($Get_KPEntry)) {
         Write-Host "The account `"$Title`" could not be found in KeePass"
-        $NewPassword = (New-KeePassPassword -UpperCase -LowerCase -Digits -SpecialCharacters -ExcludeCharacters '"' -Length 16)
+        $NewPassword = (New-KeePassPassword -UpperCase -LowerCase -Digits -SpecialCharacters -ExcludeCharacters '"' -Length 20)
         New-KeePassEntry -DatabaseProfileName $DatabaseProfileName -KeePassEntryGroupPath "kiran" -Title "$Title" -UserName "$UserName" -KeePassPassword $NewPassword
     }
     else {

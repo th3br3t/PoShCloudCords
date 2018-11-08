@@ -13,10 +13,8 @@
         [CmdletBinding()] 
         [parameter(Mandatory=$true)]
         [string] $VIServer,
-        #[Parameter(Mandatory=$true)]
-        #[Security.SecureString] $Credential,
-        [parameter(Mandatory=$true)]
-        [string] $Credential
+        [Parameter(Mandatory=$true)]
+        [System.Management.Automation.PSCredential] $Credential
     )
 Get-Module -ListAvailable VMware* | Import-Module | Out-Null
     try {
