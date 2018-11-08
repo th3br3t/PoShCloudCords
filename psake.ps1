@@ -108,6 +108,7 @@ Task Build -Depends UnitTests {
     }
     Set-ModuleFunctions -Name $env:BHPSModuleManifest -FunctionsToExport $ExportFunctions
     Update-Metadata -Path $env:BHPSModuleManifest -PropertyName AliasesToExport -Value $ExportAliases
+    Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $BuildVersion
     
     "Populating NestedModules"
     # Scan the Public and Private folders and add all Files to NestedModules
