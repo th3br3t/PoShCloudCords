@@ -11,7 +11,7 @@
             Write-Host "The Module Module does not appear to be installed"
                 try {
                     Write-Host "Installing the $Name Module"
-                    Install-Module $Name -Confirm:$false -Force -AllowClobber
+                    Install-Module $Name -Confirm:$false -Force:$Force -AllowClobber
                     Write-Host "The $Name Module installed successfully."
                     Write-Host "Importing the $Name Module"
                     Import-Module $Name -EA 1
