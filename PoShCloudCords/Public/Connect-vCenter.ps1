@@ -7,21 +7,20 @@
     .PARAMETER Credential
         PSCredential object.
     .EXAMPLE
-        Create-PSCredential -VIServer "servername.toconnect.to" -Credential $CredentialObject
+        Connect-vCenter -VIServer "servername.toconnect.to" -Credential $CredentialObject
     #>
-    param(
-        [CmdletBinding()] 
+    param( 
         [parameter(Mandatory=$true)]
         [string] $VIServer,
         [Parameter(Mandatory=$true)]
-        [System.Management.Automation.PSCredential] $Credential
+        [SecureString] $Credential
     )
-Get-Module -ListAvailable VMware* | Import-Module | Out-Null
+    Get-Module -ListAvailable VMware* | Import-Module | Out-Null
     try {
-        Write-Host "Connecting to $VIServer" -Fore Magenta
-        Connect-VIServer $VIServer -Credential $Credential -EA 0 -WA 0 > $null
-        Write-Host "Successfully connected to $VIServer" -Fore Magenta
-        Set-PowerCLIConfiguration -DefaultVIServerMode Single -InvalidCertificateAction 'Ignore' -Confirm:$False -Scope Session > $null
+        Write-Host "Connecting to $VIServer"
+        Connect-VIServer $VIServer -Credential $Credential -EA 0 -WA 0 | Out-Null
+        Write-Host "Successfully connected to $VIServer"
+        Set-PowerCLIConfiguration -DefaultVIServerMode Single -InvalidCertificateAction 'Ignore' -Confirm:$False -Scope Session | Out-Null #> $null
     }
     catch {
         Write-Host "Error connecting to $VIServer"
