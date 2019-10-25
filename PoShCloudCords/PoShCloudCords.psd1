@@ -12,7 +12,7 @@
 RootModule = 'PoShCloudCords.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.54'
+ModuleVersion = '0.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -27,10 +27,10 @@ Author = 'Bret Robinson'
 CompanyName = 'Kiran Analytics'
 
 # Copyright statement for this module
-Copyright = '(c) 2018 Bret Robinson. All rights reserved.'
+Copyright = '(c) 2019 Kiran Analytics a Verint Copmany. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'CloudCords helper module for automation in CloudCords environment'
+Description = 'Module for automation in CloudCords environment'
 
 # Minimum version of the Windows PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -51,22 +51,22 @@ Description = 'CloudCords helper module for automation in CloudCords environment
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @()
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-ScriptsToProcess = @()
+# ScriptsToProcess = @()
 
 # Type files (.ps1xml) to be loaded when importing this module
-TypesToProcess = @()
+# TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @()
+# NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @('Add-KeePass_Entry','Add-KeePass_Profile','Connect-vCenter','Get-KeePass_Entry','Import-PSCredential','Import-PSModule')
