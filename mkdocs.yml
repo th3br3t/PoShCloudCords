@@ -1,5 +1,5 @@
 site_name: PoShCloudCords - PowerShell Module for the CloudCords DevOps team
-repo_url: https://github.com/th3br3t/PoShCloudCords
+repo_url: https://tfs.cloudcords.com/CloudCordsCollection/DevOps/_git/Infrastructure/Shared/Modules/PoSHCloudCords
 site_author: Bret Robinson
 edit_uri: edit/master/docs/
 theme: readthedocs
@@ -10,4 +10,3 @@ nav:
   - Change Log: ChangeLog.md
   - Functions:
     - Import-PSCredential: functions/Import-PSCredential.md
-  

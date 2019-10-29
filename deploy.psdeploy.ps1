@@ -1,16 +1,11 @@
-﻿# Publish to AppVeyor if we're in AppVeyor
-if(
-    $env:BHProjectName -and $ENV:BHProjectName.Count -eq 1 -and
-    $env:BHBuildSystem -eq 'AppVeyor'
-   )
+﻿if($ENV:BHProjectName -and $ENV:BHProjectName.Count -eq 1)
 {
-    Deploy PoShCloudCords {
-        By AppVeyorModule {
+    Deploy Module {
+        By PSGalleryModule {
             FromSource $ENV:BHProjectName
-            To Environment
+            To PSGallery
             WithOptions @{
                 ApiKey = $ENV:NugetApiKey
-                Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
     }
