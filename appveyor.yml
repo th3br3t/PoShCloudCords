@@ -13,14 +13,10 @@ deploy:
 
   server: https://ps.cloudcords.com:4433/nuget/CloudCordsRepository
 
-  api_key:
-
+  NugetApiKey:
     secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
-
-#  NugetApiKey:
-#    secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
-#  access_token:
-#    secure: QelnrMKabQm4TFKxppcR+Vd5BNijYKoEPcEKu5CvvIHtsnup4F9f56/FQv+SNjkA
+  access_token:
+    secure: QelnrMKabQm4TFKxppcR+Vd5BNijYKoEPcEKu5CvvIHtsnup4F9f56/FQv+SNjkA
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
