@@ -1,18 +1,6 @@
 ﻿# See http://www.appveyor.com/docs/appveyor-yml for many more options
 
 environment:
-version: 1.2.1.{build}
-
-build:
-
-  verbosity: minimal
-
-deploy:
-
-- provider: NuGet
-
-  server: https://ps.cloudcords.com:4433/nuget/CloudCordsRepository
-
   NugetApiKey:
     secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
   access_token:
