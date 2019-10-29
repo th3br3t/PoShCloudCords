@@ -9,6 +9,7 @@ if(
             FromSource $ENV:BHProjectName
             To Environment
             WithOptions @{
+                ApiKey = $ENV:NugetApiKey
                 Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
