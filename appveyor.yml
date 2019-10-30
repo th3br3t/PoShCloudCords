@@ -1,8 +1,8 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
 version: 1.2.1.{build}
-#deploy:
-#- provider: NuGet
-#  server: https://ps.cloudcords.com:4433/nuget/PoShCloudCords
+deploy:
+- provider: NuGet
+  server: https://ps.cloudcords.com:4433/nuget/PoShCloudCords
 environment:
   NugetApiKey:
     secure: 8DMu9tr7/CA0Ycl+7xPJgihrS0eFo3x3EK+qVRCFPwg=
