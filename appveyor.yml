@@ -1,11 +1,11 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
-version: 1.2.1.{build}
+version: 1.3.1.{build}
 deploy:
 - provider: NuGet
   server: https://ps.cloudcords.com:4433/nuget/PoShCloudCords
 environment:
   NugetApiKey:
-    secure: h0l79oAJkHZ7S4Qvcm1BdSuAQY1MU+Jj8dkcSZUV68E=
+    secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
