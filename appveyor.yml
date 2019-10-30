@@ -1,5 +1,6 @@
 version: 1.2.1.{build}
 image: WMF 5
+build:
   verbosity: minimal
 deploy:
 - provider: NuGet
@@ -11,7 +12,6 @@ deploy:
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
   message: /updated readme.*|update readme.*s/
-build: off
 
 #Kick off the CI/CD pipeline
 test_script:
