@@ -3,9 +3,11 @@
     Deploy Module {
         By AppVeyorModule {
             FromSource $ENV:BHProjectName
-            To CloudCords
+            To Environment
+            Name CloudCords
             WithOptions @{
-                ApiKey = $ENV:NugetApiKey
+                Name = 'CloudCords'
+                Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
     }
