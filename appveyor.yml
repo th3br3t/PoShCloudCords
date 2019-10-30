@@ -5,6 +5,6 @@ test_script:
 - ps: .\build.ps1
 deploy:
 - provider: NuGet
-  server: https://ps.cloudcords.com:4433/nuget/CloudCords
+  server: https://ps.cloudcords.com:4433/nuget/CloudCords/
   api_key:
     secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
