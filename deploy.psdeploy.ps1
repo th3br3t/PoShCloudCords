@@ -6,7 +6,6 @@
             To Environment
             Name CloudCords
             WithOptions @{
-                Name = 'CloudCords'
                 Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
