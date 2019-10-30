@@ -6,8 +6,8 @@ deploy:
 environment:
   NugetApiKey:
     secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
-  access_token:
-    secure: QelnrMKabQm4TFKxppcR+Vd5BNijYKoEPcEKu5CvvIHtsnup4F9f56/FQv+SNjkA
+  #access_token:
+  #  secure: QelnrMKabQm4TFKxppcR+Vd5BNijYKoEPcEKu5CvvIHtsnup4F9f56/FQv+SNjkA
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
