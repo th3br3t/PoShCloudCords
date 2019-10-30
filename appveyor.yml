@@ -1,6 +1,5 @@
 version: 1.2.1.{build}
 image: WMF 5
-build:
   verbosity: minimal
 deploy:
 - provider: NuGet
