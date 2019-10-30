@@ -1,9 +1,9 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
-version: 1.3.1.{build}
+version: 1.3.2.{build}
 
 #Publish to PowerShell Gallery with this key
 environment:
-  server: https://ps.cloudcords.com:4433/nuget/CloudCordsRepository/
+  server: https://ps.cloudcords.com:4433/nuget/CloudCords/
   NuGetApiKey:
     secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
 
