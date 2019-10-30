@@ -3,8 +3,7 @@
     Deploy Module {
         By AppVeyorModule {
             FromSource $ENV:BHProjectName
-            To Environment
-            Name CloudCords
+            To CloudCords
             WithOptions @{
                 Version = $env:APPVEYOR_BUILD_VERSION
             }
