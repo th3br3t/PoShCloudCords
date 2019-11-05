@@ -1,4 +1,12 @@
 ﻿function Import-PSModule {
+    <#
+    .SYNOPSIS
+        Import a PowerShell module, installs the module from the PowerShell Gallery if it is not installed.
+    .PARAMETER Module
+        The Name of the module to load.
+    .EXAMPLE
+        Import-PSModule -Module PoShCloudCords
+    #>
     param(
         [parameter(Mandatory=$true)]
         [string] $Module
