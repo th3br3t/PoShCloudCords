@@ -1,11 +1,11 @@
 ﻿if($ENV:BHProjectName -and $ENV:BHProjectName.Count -eq 1)
 {
     Deploy Module {
-        By PSGalleryModule {
+        By AppVeyorModule {
             FromSource $ENV:BHProjectName
-            To PSGallery
+            To CloudCords
             WithOptions @{
-                ApiKey = $ENV:NugetApiKey
+                Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
     }
