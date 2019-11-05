@@ -1,22 +1,10 @@
-# See http://www.appveyor.com/docs/appveyor-yml for many more options
-version: 1.3.1.{build}
-
-#Publish to PowerShell Gallery with this key
-environment:
-  server: https://ps.cloudcords.com:4433/nuget/CloudCordsRepository/
-  NuGetApiKey:
-    secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
-
-# Allow WMF5 (i.e. PowerShellGallery functionality)
-os: WMF 5
-
-# Skip on updates to the readme.
-# We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
-skip_commits:
-  message: /updated readme.*|update readme.*s/
-
-build: false
-
-#Kick off the CI/CD pipeline
+version: 1.3.2.{build}
+image: WMF 5
+build: off
 test_script:
-  - ps: . .\build.ps1
+- ps: .\build.ps1
+deploy:
+- provider: NuGet
+  server: https://ps.cloudcords.com:4433/nuget/CloudCords/
+  api_key:
+    secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=
