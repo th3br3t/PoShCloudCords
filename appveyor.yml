@@ -1,14 +1,16 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
 version: 1.4.{build}
-image: WMF 5
-build: off
-test_script:
-- ps: .\build.ps1
+image: Visual Studio 2017
+build:
+  verbosity: minimal
 deploy:
 - provider: NuGet
-  server: https://ps.cloudcords.com:4433/nuget/CloudCords/
+  server: https://ps.cloudcords.com:4433/nuget/PoShCloudCords
   api_key:
-    secure: kirERfZ/xAYSgvnKbFclvqHvdIeYdt/SkRCfj7Swjh0=WMF 5
+    secure: 8DMu9tr7/CA0Ycl+7xPJgihrS0eFo3x3EK+qVRCFPwg=
+
+# Allow WMF5 (i.e. PowerShellGallery functionality)
+os: WMF 5
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
@@ -16,3 +18,10 @@ skip_commits:
   files:
     - README.md
   message: /updated readme.*|update readme.*s|update docs.*|update version.*|update appveyor.*/
+
+
+build: false
+
+#Kick off the CI/CD pipeline
+test_script:
+  - ps: . .\build.ps1
