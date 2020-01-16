@@ -18,9 +18,9 @@
         [Security.SecureString] $MasterKey,
         [parameter(Mandatory = $true)]
         [string] $ProfileName,
-        [parameter(Mandatory=$true)]
+        [parameter(Mandatory=$false)]
         [string] $Title,
-        [parameter(Mandatory=$true)]
+        [parameter(Mandatory=$false)]
         [string] $UserName
     )
     $Get_KPEntry = (Get-KeePassEntry -AsPlainText -DatabaseProfileName $ProfileName -MasterKey $MasterKey | Where-Object {$_.Title -like "$Title"})

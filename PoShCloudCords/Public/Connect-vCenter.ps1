@@ -13,15 +13,16 @@
         [parameter(Mandatory=$true)]
         [string] $VIServer,
         [Parameter(Mandatory=$true)]
-        [SecureString] $Credential
+        [System.Management.Automation.PSCredential] $Credential
     )
     Get-Module -ListAvailable VMware* | Import-Module | Out-Null
     try {
+        Write-Host "Setting PowerCLI Configuration"
+        Set-PowerCLIConfiguration -DefaultVIServerMode Single -InvalidCertificateAction 'Ignore' -Scope Session -ParticipateInCEIP $False -Confirm:$False | Out-Null
         Write-Host "Connecting to $VIServer"
-        Connect-VIServer $VIServer -Credential $Credential -EA 0 -WA 0 | Out-Null
+        Connect-VIServer -Server $VIServer -Credential $Credential -EA 0 -WA 0 | Out-Null
         Write-Host "Successfully connected to $VIServer"
-        Set-PowerCLIConfiguration -DefaultVIServerMode Single -InvalidCertificateAction 'Ignore' -Confirm:$False -Scope Session | Out-Null #> $null
-    }
+    } 
     catch {
         Write-Host "Error connecting to $VIServer"
     }

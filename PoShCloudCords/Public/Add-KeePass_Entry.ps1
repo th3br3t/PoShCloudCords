@@ -22,9 +22,9 @@
         [string] $ProfileName,
         [parameter(Mandatory = $true)]
         [string] $EntryPath, 
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [string] $Title,
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $false)]
         [string] $UserName
     )
     $Time = (Get-Date -UFormat "%A, %b %d, %Y %r")
