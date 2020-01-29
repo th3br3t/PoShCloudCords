@@ -1,6 +1,7 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
-version: 1.4.{build}
+version: 1.0.0-build-{build}
 image: Visual Studio 2017
+build:
   verbosity: minimal
 deploy:
 - provider: NuGet
@@ -10,6 +11,13 @@ deploy:
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
+
+#Update Module Manifest version
+[System.Version]$currentManifestVersion = (Import-LocalizedData -FileName PoShCloudCords.psd1).ModuleVersion
+
+if ($buildNumber -gt $currentManifestVersion) {
+    Update-ModuleManifest -Path .\PoShCloudCords.psd1 -ModuleVersion $buildNumber
+}
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
