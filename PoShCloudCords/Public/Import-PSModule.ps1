@@ -9,7 +9,9 @@
     #>
     param(
         [parameter(Mandatory=$true)]
-        [string] $Module
+        [string] $Module,
+        [parameter(Mandatory=$false)]
+        [version] $RequiredVersion
     )
     If ( ! (Get-module $Module )) {
     Write-Host "The $Module module does not appear to be loaded"
