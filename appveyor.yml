@@ -9,23 +9,12 @@ deploy:
   api_key:
     secure: 8DMu9tr7/CA0Ycl+7xPJgihrS0eFo3x3EK+qVRCFPwg=
 
-# Allow WMF5 (i.e. PowerShellGallery functionality)
-os: WMF 5
-
-#Update Module Manifest version
-[System.Version]$currentManifestVersion = (Import-LocalizedData -FileName PoShCloudCords.psd1).ModuleVersion
-
-if ($buildNumber -gt $currentManifestVersion) {
-    Update-ModuleManifest -Path .\PoShCloudCords.psd1 -ModuleVersion $buildNumber
-}
+image: Visual Studio 2017
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
-  files:
-    - README.md
-  message: /updated readme.*|update readme.*s|update docs.*|update version.*|update appveyor.*/
-
+  message: /updated readme.*|update readme.*s/
 
 build: false
 
