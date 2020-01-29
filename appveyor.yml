@@ -1,7 +1,6 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
 version: 1.4.{build}
 image: Visual Studio 2017
-build:
   verbosity: minimal
 deploy:
 - provider: NuGet
