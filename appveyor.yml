@@ -7,8 +7,6 @@ deploy:
   api_key:
     secure: 8DMu9tr7/CA0Ycl+7xPJgihrS0eFo3x3EK+qVRCFPwg=
 
-image: Visual Studio 2017
-
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
