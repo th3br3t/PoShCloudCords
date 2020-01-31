@@ -10,7 +10,8 @@ Import-Module Psake, BuildHelpers
 Set-BuildEnvironment
 
 #Update Module Manifest version
-[System.Version]$currentManifestVersion = (Import-LocalizedData -FileName .\PoShCloudCords\PoShCloudCords.psd1).ModuleVersion
+$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
+[System.Version]$currentManifestVersion = (Import-LocalizedData -BaseDirectory "$scriptPath\PoShCloudCords" -FileName "PoShCloudCords.psd1").ModuleVersion
 if ($buildNumber -gt $currentManifestVersion) {
     Update-ModuleManifest -Path .\PoShCloudCords\PoShCloudCords.psd1 -ModuleVersion $buildNumber
 }
