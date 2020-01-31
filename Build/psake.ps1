@@ -43,15 +43,13 @@ Task Test -Depends Init  {
     $lines
     "`n`tSTATUS: Testing with PowerShell $PSVersion"
 
+    # Testing links on github requires >= tls 1.2
+    $SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
     # Gather test results. Store them in a variable and file
-    $pesterParameters = @{
-        Path         = "$ProjectRoot\Tests"
-        PassThru     = $true
-        OutputFormat = "NUnitXml" 
-        OutputFile   = "$ProjectRoot\$TestFile"
-    }
-    if (-Not $IsWindows) { $pesterParameters["ExcludeTag"] = "WindowsOnly" }
-    $TestResults = Invoke-Pester @pesterParameters
+    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
+    [Net.ServicePointManager]::SecurityProtocol = $SecurityProtocol
 
     # In Appveyor?  Upload our tests! #Abstract this into a function?
     If($ENV:BHBuildSystem -eq 'AppVeyor')
@@ -62,7 +60,6 @@ Task Test -Depends Init  {
     }
 
     Remove-Item "$ProjectRoot\$TestFile" -Force -ErrorAction SilentlyContinue
-
     # Failed tests?
     # Need to tell psake or it will proceed to the deployment. Danger!
     if($TestResults.FailedCount -gt 0)
@@ -79,12 +76,11 @@ Task Build -Depends Test {
     Set-ModuleFunctions
 
     # Bump the module version if we didn't already
-    Try
-    {
-        [version]$GalleryVersion = Get-NextNugetPackageVersion -Name $env:BHProjectName -ErrorAction Stop
-        [version]$GithubVersion = Get-MetaData -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -ErrorAction Stop
-        if($GalleryVersion -ge $GithubVersion) {
-            Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $GalleryVersion -ErrorAction stop
+    Try {
+        $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
+        [System.Version]$currentManifestVersion = (Import-LocalizedData -BaseDirectory "$scriptPath\PoShCloudCords" -FileName "PoShCloudCords.psd1").ModuleVersion
+        if ($buildNumber -gt $currentManifestVersion) {
+        Update-ModuleManifest -Path .\PoShCloudCords\PoShCloudCords.psd1 -ModuleVersion $buildNumber
         }
     }
     Catch
@@ -96,25 +92,10 @@ Task Build -Depends Test {
 Task Deploy -Depends Build {
     $lines
 
-    # Gate deployment
-    if(
-        $ENV:BHBuildSystem -ne 'Unknown' -and
-        $ENV:BHBranchName -eq "master" -and
-        $ENV:BHCommitMessage -match '!deploy'
-    )
-    {
-        $Params = @{
-            Path = $ProjectRoot
-            Force = $true
-        }
-
-        Invoke-PSDeploy @Verbose @Params
+    $Params = @{
+        Path = "$ProjectRoot\Build"
+        Force = $true
+        Recurse = $false # We keep psdeploy artifacts, avoid deploying those : )
     }
-    else
-    {
-        "Skipping deployment: To deploy, ensure that...`n" +
-        "`t* You are in a known build system (Current: $ENV:BHBuildSystem)`n" +
-        "`t* You are committing to the master branch (Current: $ENV:BHBranchName) `n" +
-        "`t* Your commit message includes !deploy (Current: $ENV:BHCommitMessage)"
-    }
+    Invoke-PSDeploy @Verbose @Params
 }
