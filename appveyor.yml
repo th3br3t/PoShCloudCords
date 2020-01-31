@@ -1,8 +1,6 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
 version: 1.0.0-build-{build}
 image: Visual Studio 2017
-build:
-  verbosity: minimal
 deploy:
 - provider: NuGet
   server: https://ps.cloudcords.com:4433/nuget/PoShCloudCords
