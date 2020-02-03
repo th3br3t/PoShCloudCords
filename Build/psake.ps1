@@ -82,7 +82,7 @@ Task Build -Depends Test {
         # Add one to the build of the version number
         [version]$NewVersion = "{0}.{1}.{2}" -f $Version.Major, $Version.Minor, ($Version.Build + 1) 
         # Update the manifest file
-        Update-ModuleManifest -Path .\PoShCloudCords.psd1 -ModuleVersion $NewVersion
+        Update-ModuleManifest -Path .\PoShCloudCords\PoShCloudCords.psd1 -ModuleVersion $NewVersion
     }
     Catch
     {
@@ -92,7 +92,6 @@ Task Build -Depends Test {
 
 Task Deploy -Depends Build {
     $lines
-
     $Params = @{
         Path = "$ProjectRoot\Build"
         Force = $true
