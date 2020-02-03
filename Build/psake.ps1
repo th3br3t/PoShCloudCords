@@ -77,11 +77,12 @@ Task Build -Depends Test {
 
     # Bump the module version if we didn't already
     Try {
-        $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
-        [System.Version]$currentManifestVersion = (Import-LocalizedData -BaseDirectory "$scriptPath\PoShCloudCords" -FileName "PoShCloudCords.psd1").ModuleVersion
-        if ($buildNumber -gt $currentManifestVersion) {
-        Update-ModuleManifest -Path .\PoShCloudCords\PoShCloudCords.psd1 -ModuleVersion $buildNumber
-        }
+        $manifest = Import-PowerShellDataFile .\PoShCloudCords\PoShCloudCords.psd1
+        [version]$version = $Manifest.ModuleVersion
+        # Add one to the build of the version number
+        [version]$NewVersion = "{0}.{1}.{2}" -f $Version.Major, $Version.Minor, ($Version.Build + 1) 
+        # Update the manifest file
+        Update-ModuleManifest -Path .\PoShCloudCords.psd1 -ModuleVersion $NewVersion
     }
     Catch
     {
