@@ -18,7 +18,7 @@
     Get-Module -ListAvailable VMware* | Import-Module | Out-Null
     try {
         Write-Host "Setting PowerCLI Configuration"
-        Set-PowerCLIConfiguration -DefaultVIServerMode Single -InvalidCertificateAction 'Ignore' -Scope Session -ParticipateInCEIP $False -Confirm:$False | Out-Null
+        Set-PowerCLIConfiguration -InvalidCertificateAction 'Ignore' -Scope "AllUsers" -ParticipateInCEIP $False -Confirm:$False
         Write-Host "Connecting to $VIServer"
         Connect-VIServer -Server $VIServer -Credential $Credential -EA 0 -WA 0 | Out-Null
         Write-Host "Successfully connected to $VIServer"
