@@ -12,7 +12,7 @@
 RootModule = 'PoShCloudCords.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.4.23'
+ModuleVersion = '1.4.25'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -24,10 +24,10 @@ GUID = '92c0545b-42d2-4a27-8f7d-6fec96b9ca17'
 Author = 'Bret Robinson'
 
 # Company or vendor of this module
-CompanyName = 'Kiran Analytics'
+CompanyName = 'Kiran Analytics a Verint Company'
 
 # Copyright statement for this module
-Copyright = '(c) 2019 Kiran Analytics a Verint Copmany. All rights reserved.'
+Copyright = '(c) 2020 Kiran Analytics a Verint Company. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'Module for automation in CloudCords environment'
