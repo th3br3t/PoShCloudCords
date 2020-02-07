@@ -77,7 +77,7 @@ Task Build -Depends Test {
 
     # Bump the module version if we didn't already
     Try {
-        $manifest = Import-PowerShellDataFile .\PoShCloudCords\PoShCloudCords.psd1
+        $Manifest = Import-PowerShellDataFile .\PoShCloudCords\PoShCloudCords.psd1
         [version]$version = $Manifest.ModuleVersion
         # Add one to the build of the version number
         [version]$NewVersion = "{0}.{1}.{2}" -f $Version.Major, $Version.Minor, ($Version.Build + 1) 
