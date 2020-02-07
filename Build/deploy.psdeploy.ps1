@@ -26,11 +26,12 @@ if(
 )
 {
     Deploy Module {
-        By NugetModule {
-            FromSource $ENV:BHModulePath
-            To NuGet
+        By AppVeyorModule {
+            FromSource $ENV:BHProjectName
+            To CloudCords
             WithOptions @{
                 ApiKey = $ENV:NugetApiKey
+                Version = $env:APPVEYOR_BUILD_VERSION
             }
         }
     }
