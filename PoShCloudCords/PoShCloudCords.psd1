@@ -12,7 +12,7 @@
 RootModule = 'PoShCloudCords.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.4.25'
+ModuleVersion = '1.4.27'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
